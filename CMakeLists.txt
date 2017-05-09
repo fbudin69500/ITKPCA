@@ -14,14 +14,10 @@ ELSE()
   itk_module_impl()
 ENDIF()
 
-CMAKE_DEPENDENT_OPTION(Module_${PCA}_BUILD_EXAMPLES "Build the examples" OFF "BUILD_EXAMPLES" OFF)
-if(Module_${PCA}_BUILD_EXAMPLES)
-  ADD_SUBDIRECTORY( examples )
-ENDIF()
-
-
 CMAKE_DEPENDENT_OPTION(Module_${PCA}_BUILD_DOCUMENTATION "Generate documentation from LaTeX files, source code examples and result screenshots" OFF
 	"BUILD_DOCUMENTATION" OFF)
 IF(Module_${PCA}_BUILD_DOCUMENTATION)
   ADD_SUBDIRECTORY( doc )
 ENDIF()
+
+itk_module_examples()

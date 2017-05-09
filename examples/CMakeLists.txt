@@ -1,16 +1,8 @@
+cmake_minimum_required(VERSION 3.0)
+project(PrincipalComponentsAnalysisExample)
 
-#######################
-#######################
-#
-#  Define Executables
-#
-#######################
-#######################
-
-FIND_PACKAGE(ITK REQUIRED COMPONENTS PrincipalComponentsAnalysis)
-
-include_directories( ${PrincipalComponentsAnalysis_SOURCE_DIR}/Source )
+find_package(ITK REQUIRED COMPONENTS PrincipalComponentsAnalysis)
+include(${ITK_USE_FILE})
 
 ADD_EXECUTABLE(VectorKernelPCA VectorKernelPCA.cxx )
 TARGET_LINK_LIBRARIES(VectorKernelPCA ${ITK_LIBRARIES})
-
